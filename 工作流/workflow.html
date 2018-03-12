@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery.step.css">
+  <link rel="stylesheet" href="css/layui.css">
+  <title>工作流</title>
+</head>
+<style>
+    .workflow{
+        width: 800px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .workflow .leaveBox{
+        height: 500px;
+    }
+    .workflow .leaveBox .leaveForm{
+        padding-top: 30px;
+    }
+    .workflow .leaveBox .leaveForm .levBtn{
+        width: 300px;
+        margin:0 auto;
+        margin-top: 20px;
+    }
+    .workflow .leaveBox .leaveForm .levBtn #leaveSub{
+        margin-right: 60px;
+    }
+    .workflow .leaveBox .leaveForm  .leaveNote{
+        padding-left:600px;
+        color:red;
+    }
+    .workflow .leaveBox .Pending{
+        width: 300px;
+        padding:60px 0 0 30px;
+        margin:0 auto;
+    }
+    .workflow .leaveBox .Pending span{
+        display: block;
+        line-height: 50px;
+        font-size: 24px;
+    }
+    .workflow .leaveBox .Pass span{
+        width: 96px;
+        display: block;
+        margin: 0 auto;
+        font-size: 24px;
+        color:#286090;
+        padding-top: 100px;
+    }
+</style>
+<body>
+  <div class="rightCon">
+        
+
+    <div class="layui-tab layui-tab-card" >
+      <ul class="layui-tab-title">
+        <li class="layui-this">请假条</li>
+        <li>已提交</li>
+        <li>已审批</li>
+      </ul>
+      <div class="layui-tab-content" style="height: 600px;">
+            <div class="layui-tab-item layui-show">
+                <div class="workflow">
+                    <div class="step-body leaveBox" id="myStep">
+                        <div class="step-header" style="width:80%">
+                            <ul>
+                                <li><p>填写请假条</p></li>
+                                <li><p>待审批</p></li>
+                                <li><p>完成</p></li>
+                            </ul>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-list">
+                                <div class="leaveForm">
+                                    <form  class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-xs-2">姓名</label>
+                                            <div class="col-xs-4">
+                                              <input type="text" class="form-control"  placeholder="姓名">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-xs-2">所属部门</label>
+                                            <div class="col-xs-4">
+                                              <input type="text" class="form-control"  placeholder="所属部门">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <label class="col-xs-2">请假类别</label>
+                                                <div class="col-xs-10">
+                                                    <label class="checkbox-inline">
+                                                      <input type="checkbox" id="inlineCheckbox1" value="option1"> 事假
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                      <input type="checkbox" id="inlineCheckbox2" value="option2"> 病假
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                      <input type="checkbox" id="inlineCheckbox3" value="option3"> 婚假
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                      <input type="checkbox" id="inlineCheckbox1" value="option4"> 产假
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                      <input type="checkbox" id="inlineCheckbox2" value="option5"> 丧假
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                      <input type="checkbox" id="inlineCheckbox3" value="option6"> 其他(请注明)
+                                                    </label>
+                                                </div>
+
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-xs-2">请假时间</label>
+                                            <div class="col-xs-4">
+                                                <input type="text" class="form-control" id="leaveDate" placeholder="开始 到 结束">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-xs-2">请假原因</label>
+                                            <div class="col-xs-4">
+                                              <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                          </div>
+                                          <span class="leaveNote">提交给xxx审批</span>
+                                          <div class="levBtn">
+                                              <button type="button" id="leaveSub" class="btn btn-primary">提交</button>
+                                              <button type="reset" class="btn btn-default">重置</button>
+                                          </div>
+
+                                          
+                                      </form>
+                                </div>
+                                  
+
+                            </div>
+                            <div class="step-list">
+                                <div class="Pending">
+                                    <span>审批人：xxx</span>
+                                    <span>联系电话：13545698741</span>
+                                    <span>邮箱：123@163.com</span>
+                                </div>
+                                
+                            </div>
+                            <div class="step-list">
+                                <div class="Pass">
+                                    <span>审批通过</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="btn btn-primary pull-left" id="preBtn">上一步</button>
+                    <button class="btn btn-primary pull-right" id="nextBtn">下一步</button>
+                    <!-- <button id="goBtn">跳转的指定的步骤</button> -->
+                                                          
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <div class="layui-form">
+                  <table class="layui-table">
+                    <colgroup>
+                      <col width="150">
+                      <col width="150">
+                      <col width="200">
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>日期</th>
+                        <th>姓名</th>
+                        <th>部门</th>
+                        <th>请假类型</th>
+                        <th>请假时间</th>
+                        <th>请假原因</th>
+                        <th>审批人</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                      </tr> 
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1989-10-14</td>
+                        <td>test</td>
+                        <td>技术部</td>
+                        <td>病假</td>
+                        <td>2018-01-20至2018-01-25</td>
+                        <td>生病</td>
+                        <td>xxx</td>
+                        <td>审批中</td>
+                        <td>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2017-10-14</td>
+                        <td>test</td>
+                        <td>技术部</td>
+                        <td>病假</td>
+                        <td>2018-01-20至2018-01-25</td>
+                        <td>生病</td>
+                        <td>xxx</td>
+                        <td>已同意</td>
+                        <td>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2017-10-14</td>
+                        <td>test</td>
+                        <td>技术部</td>
+                        <td>事假</td>
+                        <td>2018-01-20至2018-01-25</td>
+                        <td>...</td>
+                        <td>xxx</td>
+                        <td>拒绝</td>
+                        <td>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <div class="layui-form">
+                  <table class="layui-table">
+                    <colgroup>
+                      <col width="150">
+                      <col width="150">
+                      <col width="200">
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>日期</th>
+                        <th>请假人</th>
+                        <th>请假时间</th>
+                        <th>请假类型</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                      </tr> 
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2016-10-14</td>
+                        <td>test</td>
+                        <td>2016-10-14-2016-10-17</td>
+                        <td>事假</td>
+                        <td>已同意</td>
+                        <td>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2016-10-14</td>
+                        <td>test</td>
+                        <td>2016-10-14-2016-10-17</td>
+                        <td>事假</td>
+                        <td>已同意</td>
+                        <td>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2016-10-14</td>
+                        <td>test</td>
+                        <td>2016-10-14-2016-10-17</td>
+                        <td>事假</td>
+                        <td>已同意</td>
+                        <td>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+      </div>
+    </div>
+
+
+
+        
+    
+    </div>
+</body>
+</html>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/layui.all.js"></script>
+<script src="js/jquery.step.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    
+    layui.use('laydate', function(){
+      var laydate = layui.laydate;
+      
+      laydate.render({
+        elem: '#leaveDate'
+        ,type: 'datetime'
+        ,range: '至'
+        ,format: 'yyyy-M-d'
+      });
+      
+      
+    });
+</script>
+
