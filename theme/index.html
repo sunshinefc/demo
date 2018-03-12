@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html class="no-js"> 
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Elate</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" id="theme-switch" href="theme/style.css">
+<link href="theme/bootstrap.min.css" rel="stylesheet">
+
+
+	<style>
+
+	#colour-variations {
+		padding: 10px;
+		-webkit-transition: 0.5s;
+	  	-o-transition: 0.5s;
+	  	transition: 0.5s;
+		
+
+	}
+	#colour-variations ul,
+	#colour-variations ul li {
+		padding: 0;
+		margin: 0;
+	}
+	#colour-variations li {
+		list-style: none;
+		display: block;
+		margin-bottom: 5px!important;
+		float: left;
+		width: 100%;
+	}
+	#colour-variations li a {
+		width: 100%;
+		position: relative;
+		display: block;
+		overflow: hidden;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-ms-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-transition: 0.4s;
+		-o-transition: 0.4s;
+		transition: 0.4s;
+	}
+	
+	
+
+
+
+	</style>
+
+
+
+
+	</head>
+	<body>
+	<nav id="fh5co-home" data-section="home" data-stellar-background-ratio="0.5" class="navbar navbar-default navbar-fixed-top" onselectstart="return false;">
+
+    <div class="container-fluid">
+      
+      <div class="user">
+        <span></span>
+        
+		<div class="btn-group" id="colour-variations">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				Dropdown
+				<span class="caret"></span>
+			</button>
+		  <ul class="dropdown-menu">
+		    <li><a href="#">请选择系统切换</a></li>
+		    <li role="separator" class="divider"></li>
+		    <li><a href="javascript: void(0);" data-theme="style"><i class="fa fa-institution"></i>行政管理系统</a></li>
+		    <li><a href="javascript: void(0);" data-theme="style2"><i class="fa fa-bar-chart"></i>销售管理系统</a></li>
+		    <li><a href="javascript: void(0);" data-theme="style3"><i class="fa fa-truck"></i>仓库管理系统</a></li>
+		    <li><a href="javascript: void(0);" data-theme="style4"><i class="fa fa-building"></i>资产管理系统</a></li>
+		    <li><a href="javascript: void(0);" data-theme="style5"><i class="fa fa-rmb"></i>费用管理系统</a></li>
+		  </ul>
+		</div>
+
+        
+      </div>
+    </div>
+  </nav>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.style.switcher.js"></script>
+	<script>
+		$(function(){
+			$('#colour-variations ul').styleSwitcher({
+				defaultThemeId: 'theme-switch',
+				hasPreview: false,
+				cookie: {
+		          	expires: 30,
+		          	isManagingLoad: true
+		      	}
+			});
+
+		});
+	</script>
+
+
+	</body>
+</html>
+
